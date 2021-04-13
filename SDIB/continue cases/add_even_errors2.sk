@@ -1,0 +1,41 @@
+bit even_check(int n) {
+    //if(n % 2 == 1) 
+    if({|n % 2 (< | > | <= | >= | == | !=) 1|})
+        return ??(1);
+
+    return ??(1);
+}
+
+int add_even()
+{
+    // Variable declaration 
+    int num;
+    int sum = 0;
+
+    for(num=1; num<=5; num++)
+    {        
+        if (even_check(num))
+            sum+=num;
+    }
+
+    return sum;
+}
+
+int add_even_correct()
+{
+    // Variable declaration 
+    int num;
+    int sum = 0;
+
+    for(num=1; num<=5; num++)
+    {        
+        if (num % 2 == 0)
+            sum+=num;
+    }
+
+    return sum;
+}
+
+harness void main(){
+	assert add_even() == add_even_correct();
+}

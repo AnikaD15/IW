@@ -1,0 +1,125 @@
+generator bit if_exp(int sumtime, int min, int max){
+    return {|(sumtime>max) (|| | &&) ((sumtime | min | max) (< | > | <= | >= | == | !=) (?? | sumtime | min | max) | 1 | 0)|}; 
+}
+
+int comp(int d, int sumtime, int[31] maxtime, int[31] mintime)
+{
+    //int d, sumtime, maxtime[31], mintime[31], 
+    int i, min=0, max=0;
+    //scanf("%d %d", &d, &sumtime);
+    for(i=0; i<d; i++)
+    {
+        //scanf("%d %d", &mintime[i], &maxtime[i]);
+        min+=mintime[i];
+        max+=maxtime[i];
+    }
+    if(if_exp(sumtime, min, max))
+        //printf("NO\n");
+        return {|1|0|};
+
+    else if (sumtime==max)
+    {
+        //printf("YES\n");
+        //for(i=0; i<d; i++)
+            //printf("%d ", maxtime[i]);
+
+        return {|1|0|};
+    }
+    else if (sumtime==min)
+    {
+        // printf("YES\n");
+        // for(i=0; i<d; i++)
+        //     printf("%d ", mintime[i]);
+
+        return {|1|0|};
+    }
+    else
+    {
+        // printf("YES\n");
+        // int diff=sumtime-min;
+        // for(i=0; i<d; i++)
+        // {
+        //     if(diff>=maxtime[i]-mintime[i])
+        //     {
+        //         printf("%d ", maxtime[i]);
+        //         diff-=(maxtime[i]-mintime[i]);
+        //     }
+        //     else if(diff==0)
+        //         printf("%d ", mintime[i]);
+        //     else 
+        //     {
+        //         printf("%d ", mintime[i]+diff);
+        //         diff-=diff;
+        //     }
+        // }
+
+        return {|1|0|};
+    }
+}
+
+int comp_correct(int d, int sumtime, int[31] maxtime, int[31] mintime)
+{
+    //int d, sumtime, maxtime[31], mintime[31], 
+    int i, min=0, max=0;
+    //scanf("%d %d", &d, &sumtime);
+    for(i=0; i<d; i++)
+    {
+        //scanf("%d %d", &mintime[i], &maxtime[i]);
+        min+=mintime[i];
+        max+=maxtime[i];
+    }
+    if(sumtime>max || sumtime<min)
+        //printf("NO\n");
+        return 0;
+
+    else if (sumtime==max)
+    {
+        //printf("YES\n");
+        //for(i=0; i<d; i++)
+            //printf("%d ", maxtime[i]);
+
+        return 1;
+    }
+    else if (sumtime==min)
+    {
+        // printf("YES\n");
+        // for(i=0; i<d; i++)
+        //     printf("%d ", mintime[i]);
+
+        return 1;
+    }
+    else
+    {
+        // printf("YES\n");
+        // int diff=sumtime-min;
+        // for(i=0; i<d; i++)
+        // {
+        //     if(diff>=maxtime[i]-mintime[i])
+        //     {
+        //         printf("%d ", maxtime[i]);
+        //         diff-=(maxtime[i]-mintime[i]);
+        //     }
+        //     else if(diff==0)
+        //         printf("%d ", mintime[i]);
+        //     else 
+        //     {
+        //         printf("%d ", mintime[i]+diff);
+        //         diff-=diff;
+        //     }
+        // }
+
+        return 1;
+    }
+}
+
+harness void main(int d, int sumtime, int[31] mintime, int[31] maxtime){
+    // int d = 1;
+    // int sumtime = 48;
+    // int[31] mintime = {5};
+    // int[31] maxtime = {7};
+
+	// by example
+    //assert comp(d, sumtime, maxtime, mintime) == 0;
+
+    assert comp(d, sumtime, maxtime, mintime) == comp_correct(d, sumtime, maxtime, mintime);
+}

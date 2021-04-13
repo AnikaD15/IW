@@ -1,0 +1,132 @@
+//#include<stdio.h>
+int n = 100;
+int d = 10;
+int s = 5;
+
+void break_correct(int c, int[n] a){
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(d<=0)
+            return;
+        if (!(a[i]==1 && d>1)){
+                //continue;
+                if(d-a[i]<=0)
+                {
+                    d=d-a[i];
+                }
+                else
+                d=d-a[i]+1;
+                c++;
+            }
+        }
+
+    }
+
+bit check(int[n] a, int i) {
+   if(a[i]==1 && d>1) 
+        return ??(1);
+
+   return ??(1);
+}
+
+void break_wrong(int c, int[n] a){
+    int i;
+
+    for(i=0;i<n;i++)
+    {
+        if(d<=0)
+            return;
+
+        if (check(a, i)){
+            //continue;
+            if(d-a[i]<=0)
+            {
+                d=d-a[i];
+            }
+            else
+                d=d-a[i]+1;
+            c++;
+        }
+    }
+}
+
+int correct(int[n] a)
+{
+    int i,j,t,c=0;
+    //scanf("%d %d %d",&n,&d,&s);
+    //int a[n];
+
+    //for(i=0;i<n;i++)
+    //scanf("%d",&a[i]);
+    
+
+    if(d>1)
+        s=s-1;
+
+    d=d-s;
+    for(i=0;i<n;i++)
+    {
+        for(j=i;j<n;j++)
+        {
+            if(a[i]<a[j])
+            {
+                t=a[j];
+                a[j]=a[i];
+                a[i]=t;
+            }
+        }
+    }
+
+    break_correct(c, a);
+
+    if(d<=0)
+        //printf("%d",c);
+        return 1;
+    else
+    //printf("-1");
+        return 0;
+    //return 0;
+}
+
+int wrong(int[n] a)
+{
+    int i,j,t,c=0;
+    //scanf("%d %d %d",&n,&d,&s);
+    //int a[n];
+
+    //for(i=0;i<n;i++)
+    //scanf("%d",&a[i]);
+    
+
+    if(d>1)
+        s=s-1;
+
+    d=d-s;
+    for(i=0;i<n;i++)
+    {
+        for(j=i;j<n;j++)
+        {
+            if(a[i]<a[j])
+            {
+                t=a[j];
+                a[j]=a[i];
+                a[i]=t;
+            }
+        }
+    }
+
+    break_wrong(c, a);
+
+    if(d<=0)
+        //printf("%d",c);
+        return 1;
+    else
+    //printf("-1");
+        return 0;
+    //return 0;
+}
+
+harness void main(int[n] nums){
+	assert correct(nums) == wrong(nums);
+}

@@ -1,0 +1,127 @@
+// max = value most repeated in a[] * value's frequency
+// t = sum of a[] elements
+// sum the minority values
+
+int n = 5;
+
+// 
+//generator int break_exp(int i){
+    //return {| i+0 | n |};
+	//return ??(3);
+//}
+
+int prod_mode(int[n] a)
+{
+	int i, temp;
+	int[101] b = {0}; //= {0};
+	int t=0, max=0;
+
+	void prod_majority(){
+		for (i = 0; i < n; i++)	{
+			//if(??){
+			//	return;
+			//}
+
+			if (b[a[i]] >= 3)
+			{
+				max = 3 * a[i];
+				if(??){
+					return;
+				}
+			}
+		}
+
+		return;
+	}
+
+	void prod_minority(){
+		for (i = 0; i < n; i++)	{
+
+			//if(??){
+			//	return;
+			//}
+
+			if (b[a[i]] == 2)
+			{
+				temp = a[i] * 2;
+				if (temp > max)
+				{
+					max = temp;
+					if(??){
+						return;
+					}
+				}
+			}
+		}
+
+		return;
+	}
+	 
+	for (i = 0; i < n; i++)
+	{
+		b[a[i]]++;
+		t += a[i];
+	}
+
+	prod_majority();
+	
+	prod_minority();
+
+	return t-max;
+}
+
+int prod_mode_correct(int[n] a)
+{
+	int i, temp;
+	int[101] b = {0}; //= {0};
+	int t=0, max=0;
+
+	void prod_majority(){
+		for (i = 0; i < n; i++)	{
+			if (b[a[i]] >= 3)
+			{
+				max = 3 * a[i];				
+				return;
+			}
+		}
+
+		return;
+	}
+
+	void prod_minority(){
+		for (i = 0; i < n; i++)	{
+			if (b[a[i]] == 2)
+			{
+				temp = a[i] * 2;
+				if (temp > max)
+				{
+					max = temp;
+				}
+			}
+		}
+
+		return;
+	}
+	 
+	for (i = 0; i < n; i++)
+	{
+		b[a[i]]++;
+		t += a[i];
+	}
+
+	prod_majority();
+	
+	prod_minority();
+
+	return t-max;
+}
+
+harness void main(int[n] a){
+	// int[n] a1 = {7, 3, 7, 3, 20};
+	// int[n] a2 = {7, 9, 3, 1, 8};
+	// int[n] a3 = {10, 10, 10, 10, 10};
+	assert prod_mode(a) == prod_mode_correct(a);
+    //assert (prod_mode(a1) == 26) && (prod_mode(a2) == 28) && (prod_mode(a3) == 20);
+}
+
+// result changes whenever I run sketch

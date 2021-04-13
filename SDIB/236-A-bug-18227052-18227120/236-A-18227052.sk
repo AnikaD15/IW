@@ -1,0 +1,113 @@
+// include "array.skh";
+// int len<T>(SArray<T> ar){ return ar.n; }
+
+int n = 100;
+
+int len(char[n] s1){
+    int count = 0;
+    int i;
+    
+    for (i=0; s1[i]!='\0'; i++){
+        count++;
+    }
+
+    return count;
+}
+
+int string_comp(int[n] s1)
+{
+    //char s1[100];
+    int i,j,c1=0,c2=0,a,l;
+    //gets(s1);
+    //l=strlen(s1);
+    //l = len(s1);
+
+    void break_exp(){
+        for(i=0;i<n;i++){
+            if(??){
+                return;
+            }
+
+            for(j=0;j!=i&&j<n;j++){
+                if(??){
+                    return;
+                }
+
+                if(s1[i]==s1[j]){
+                    c2++;
+
+                    if(??){
+                        return;
+                    }
+                }
+
+                if(??){
+                    return;
+                }
+            }
+            c1++;
+        }
+
+    }
+
+    break_exp();
+
+    a=c1-c2;
+    if(a%2==0){
+        //printf("CHAT WITH HER!");
+        return 1;
+    }
+    else{
+        //printf("IGNORE HIM!");
+        return 0;
+    }
+    //printf("%d %d",c1,c2);
+    //return 0;
+}
+
+int string_comp_correct(int[n] s1)
+{
+    //char s1[100];
+    int i,j,c1=0,c2=0,a,l;
+    //gets(s1);
+    //l=strlen(s1);
+    //l = len(s1);
+
+    void break_exp(){
+        for(i=0;i<n;i++){
+            for(j=0;j!=i&&j<n;j++){
+                if(s1[i]==s1[j]){
+                    c2++;
+                    return;
+                }
+            }
+            c1++;
+        }
+
+    }
+
+    break_exp();
+    
+    a=c1-c2;
+    if(a%2==0){
+        //printf("CHAT WITH HER!");
+        return 1;
+    }
+    else{
+        //printf("IGNORE HIM!");
+        return 0;
+    }
+    //printf("%d %d",c1,c2);
+    //return 0;
+}
+
+//harness void main(char[n] s1){
+  //  //s1 = {'a', ' ', 's', 't', 'r', 'i', 'n', 'g', '\0'};
+    //assert string_comp(s1) == string_comp_correct(s1);
+//}
+
+harness void main(int[n] s1){
+    //s1 = {'a', ' ', 's', 't', 'r', 'i', 'n', 'g', '\0'};
+    assert string_comp(s1) == string_comp_correct(s1);
+}
+

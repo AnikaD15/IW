@@ -1,0 +1,126 @@
+SKETCH version 1.7.6
+Benchmark = break.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*break.sk:120*/
+
+void _main (int[5] a)/*break.sk:120*/
+{
+  int _out_s3 = 0;
+  prod_mode(a, _out_s3);
+  int _out_s5 = 0;
+  prod_mode_correct(a, _out_s5);
+  assert (_out_s3 == _out_s5); //Assert at break.sk:124 (0)
+}
+/*break.sk:120*/
+
+void main__Wrapper (int[5] a)  implements main__WrapperNospec/*break.sk:120*/
+{
+  _main(a);
+}
+/*break.sk:120*/
+
+void main__WrapperNospec (int[5] a)/*break.sk:120*/
+{ }
+/*break.sk:80*/
+
+void prod_majority1 (int[5] a, int[101] b, ref int max, ref int i)/*break.sk:80*/
+{
+  for(i = 0; i < 5; i = i + 1)
+  {
+    if((b[a[i]]) >= 3)/*break.sk:82*/
+    {
+      max = 3 * (a[i]);
+      return;
+    }
+  }
+  return;
+}
+/*break.sk:19*/
+
+void prod_majority3 (int[5] a, int[101] b, ref int max, ref int i)/*break.sk:19*/
+{
+  for(i = 0; i < 5; i = i + 1)
+  {
+    if((b[a[i]]) >= 3)/*break.sk:25*/
+    {
+      max = 3 * (a[i]);
+      return;
+    }
+  }
+  return;
+}
+/*break.sk:92*/
+
+void prod_minority2 (int[5] a, int[101] b, ref int temp, ref int max, ref int i)/*break.sk:92*/
+{
+  for(i = 0; i < 5; i = i + 1)
+  {
+    if((b[a[i]]) == 2)/*break.sk:94*/
+    {
+      temp = (a[i]) * 2;
+      if(temp > max)/*break.sk:97*/
+      {
+        max = temp;
+      }
+    }
+  }
+  return;
+}
+/*break.sk:38*/
+
+void prod_minority4 (int[5] a, int[101] b, ref int temp, ref int max, ref int i)/*break.sk:38*/
+{
+  for(i = 0; i < 5; i = i + 1)
+  {
+    if((b[a[i]]) == 2)/*break.sk:45*/
+    {
+      temp = (a[i]) * 2;
+      if(temp > max)/*break.sk:48*/
+      {
+        max = temp;
+      }
+    }
+  }
+  return;
+}
+/*break.sk:13*/
+
+void prod_mode (int[5] a, ref int _out)/*break.sk:13*/
+{
+  int i = 0;
+  int temp = 0;
+  int[101] b = ((int[101]){0});
+  int t = 0;
+  int max = 0;
+  for(i = 0; i < 5; i = i + 1)
+  {
+    b[a[i]] = (b[a[i]]) + 1;
+    t = t + (a[i]);
+  }
+  prod_majority3(a, b, max, i);
+  prod_minority4(a, b, temp, max, i);
+  _out = t - max;
+  return;
+}
+/*break.sk:74*/
+
+void prod_mode_correct (int[5] a, ref int _out)/*break.sk:74*/
+{
+  int i = 0;
+  int temp = 0;
+  int[101] b = ((int[101]){0});
+  int t = 0;
+  int max = 0;
+  for(i = 0; i < 5; i = i + 1)
+  {
+    b[a[i]] = (b[a[i]]) + 1;
+    t = t + (a[i]);
+  }
+  prod_majority1(a, b, max, i);
+  prod_minority2(a, b, temp, max, i);
+  _out = t - max;
+  return;
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 6346

@@ -1,0 +1,41 @@
+generator bit if_exp(int n, int m){
+    return {|(n==0) (|| | &&) ((n | m) (< | > | <= | >= | == | !=) ?? | 1 | 0)|}; // also gives correct program
+}
+
+int find_minmax(int n, int m)
+{
+    //int n,m;
+    int min,max;
+    //scanf("%d %d",&n,&m);
+    if(if_exp(n, m)) 
+        //printf("Impossible");
+        return 0;
+    else{
+        if(m==0 || n>=m) min=n;
+        else min=m;
+        max=n+m-(m!=0);
+        //printf("%d %d",min,max);
+        return 1;
+    }
+}
+
+int find_minmax_correct(int n, int m)
+{
+    //int n,m;
+    int min,max;
+    //scanf("%d %d",&n,&m);
+    if(n==0 && m!=0) 
+        //printf("Impossible");
+        return 0;
+    else{
+        if(m==0 || n>=m) min=n;
+        else min=m;
+        max=n+m-(m!=0);
+        //printf("%d %d",min,max);
+        return 1;
+    }
+}
+
+harness void main(int n, int m){
+    assert find_minmax(n, m) == find_minmax_correct(n, m);
+}

@@ -1,0 +1,48 @@
+generator bit if_exp(int w){
+    //return {|(w%2==0) (|| | &&) (w (< | > | <= | >= | == | !=) 2 | 1 | 0)|}; // gives correct program
+    return {|(w%??==0) (|| | &&) (w (< | > | <= | >= | == | !=) ?? | 1 | 0)|}; // also gives correct program
+}
+
+// even number greater than 2
+int even_not_2(int w)
+{
+    // int w,ans;
+    // if( w % 2 == 0){
+    if(if_exp(w))
+    {
+        //printf("YES");
+        return 1;
+    }
+    else{
+        //printf("NO");
+        return 0;
+    }
+}
+
+// even number greater than 2
+int even_not_2_correct(int w)
+{
+    // int w,ans;
+    // if( w % 2 == 0){
+    if(w % 2 == 0 && w != 2)
+    {
+        //printf("YES");
+        return 1;
+    }
+    else{
+        //printf("NO");
+        return 0;
+    }
+}
+
+harness void main(int x){
+    //assert (even_greater_2(x) == (x%2==0)) && (even_greater_2(x) == (x!=2)); //makes it unsatisfiable
+    //assert even_not_2(x) == ((x%2==0) && (x!=2));
+    // assert everything together
+
+    assert even_not_2(x) == even_not_2_correct(x);
+}
+
+// parsing, formal languages
+
+

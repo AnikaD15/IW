@@ -1,0 +1,52 @@
+int n = 5;
+int m = 5;
+
+bit check(int[m] num) {
+    //if(n % 2 == 1) 
+   if(num == null) 
+        return ??(1);
+
+   return ??(1);
+}
+
+void correct(int[n][m] nums) {
+   //struct SymNode *psCurrentNode;
+   int i;
+   int sum=0;
+ 
+   for (i = 0; i < n; i++) {
+      if (nums[i] != null){
+         //continue;
+ 
+         int[m] current = nums[i];
+   
+         while (current != null) {
+            sum++;
+   
+            //psCurrentNode = psCurrentNode->psNextNode;
+         }
+      }
+   }   
+}
+
+void wrong(int[n][m] nums) {
+   //struct SymNode *psCurrentNode;
+   int i;
+   int sum=0;
+ 
+   for (i = 0; i < n; i++) {
+      if (check(nums[i])){
+         //continue;
+         int[m] current = nums[i];
+   
+         while (current != null) {
+            sum++;
+            //psCurrentNode = psCurrentNode->psNextNode;
+         }
+      }
+   }   
+}
+
+harness void main(int[n][m] nums){
+	assert correct(nums) == wrong(nums);
+}

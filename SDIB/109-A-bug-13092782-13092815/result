@@ -1,0 +1,115 @@
+SKETCH version 1.7.6
+Benchmark = 109-A-13092782.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*109-A-13092782.sk:137*/
+
+void _main (int n)/*109-A-13092782.sk:137*/
+{
+  int _out_s1 = 0;
+  wrong(n, _out_s1);
+  int _out_s3 = 0;
+  correct(n, _out_s3);
+  assert (_out_s1 == _out_s3); //Assert at 109-A-13092782.sk:138 (0)
+}
+/*109-A-13092782.sk:83*/
+
+void break_exp1 (ref int b, ref int flag, ref int i, int z, ref int j, ref int k)/*109-A-13092782.sk:83*/
+{
+  for(i = z - (k * 7); k != 0; k = k - 1)
+  {
+    i = z - (k * 7);
+    if((i % 4) == 0)/*109-A-13092782.sk:90*/
+    {
+      flag = 1;
+      return;
+    }
+    return;
+  }
+}
+/*109-A-13092782.sk:6*/
+
+void break_exp2 (ref int b, ref int flag, ref int i, int z, ref int j, ref int k)/*109-A-13092782.sk:6*/
+{
+  for(i = z - (k * 7); k != 0; k = k - 1)
+  {
+    i = z - (k * 7);
+    if((i % 4) == 0)/*109-A-13092782.sk:21*/
+    {
+      flag = 1;
+    }
+    return;
+  }
+}
+/*109-A-13092782.sk:78*/
+
+void correct (int n, ref int _out)/*109-A-13092782.sk:78*/
+{
+  int i = 0;
+  int k = 0;
+  int j = 0;
+  int b = 0;
+  int flag = 0;
+  if((n % 7) == 0)/*109-A-13092782.sk:109*/
+  {
+    flag = 1;
+  }
+  if(((n % 7) != 0) && (flag == 0))/*109-A-13092782.sk:117*/
+  {
+    k = n / 7;
+    break_exp1(b, flag, i, n, j, k);
+  }
+  if(((n % 4) == 0) && (flag == 0))/*109-A-13092782.sk:123*/
+  {
+    flag = 1;
+  }
+  if(flag == 0)/*109-A-13092782.sk:130*/
+  {
+    _out = 0;
+    return;
+  }
+  _out = 1;
+  return;
+}
+/*109-A-13092782.sk:137*/
+
+void main__Wrapper (int n)  implements main__WrapperNospec/*109-A-13092782.sk:137*/
+{
+  _main(n);
+}
+/*109-A-13092782.sk:137*/
+
+void main__WrapperNospec (int n)/*109-A-13092782.sk:137*/
+{ }
+/*109-A-13092782.sk:1*/
+
+void wrong (int n, ref int _out)/*109-A-13092782.sk:1*/
+{
+  int i = 0;
+  int k = 0;
+  int j = 0;
+  int b = 0;
+  int flag = 0;
+  if((n % 7) == 0)/*109-A-13092782.sk:50*/
+  {
+    flag = 1;
+  }
+  if(((n % 7) != 0) && (flag == 0))/*109-A-13092782.sk:58*/
+  {
+    k = n / 7;
+    break_exp2(b, flag, i, n, j, k);
+  }
+  if(((n % 4) == 0) && (flag == 0))/*109-A-13092782.sk:64*/
+  {
+    flag = 1;
+  }
+  if(flag == 0)/*109-A-13092782.sk:71*/
+  {
+    _out = 0;
+    return;
+  }
+  _out = 1;
+  return;
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 547

@@ -1,0 +1,52 @@
+int n = 7;
+
+generator int break_exp(int i){
+    return {| i+0 | n |};
+	//return ??(3);
+}
+
+// changes array
+int[n] lucky_func(int[n] num)
+{
+    int[n] lucky;
+    int k = 7;
+    int n = 7,i,flag=0;
+    //scanf("%d %d",&n,&k);
+    //scanf("%s",&lucky);
+
+        for(i=0;i<n-1 && k>0;i++){
+            if(lucky[i]==4 && lucky[i+1]==7){
+
+                if(i%2==0){
+                    lucky[i+1]=4;
+                    //i = break_exp(i);
+                }
+                else if(i>0 && lucky[i-1]==4){
+                    if(k%2==0) lucky[i]=4;
+                    else lucky[i]=7;
+                    i = break_exp(i);
+                }
+                else lucky[i]=7;
+                k--;
+                //i = break_exp(i);
+            }
+        }
+
+    //printf("%s",lucky);
+    return lucky;
+}
+
+harness void main(){
+	//int[n] num = {4,7,2,7,4,4,7};
+	//assert lucky_func(num) == {4,4,2,7,4,7,7}; 
+    int i;  
+
+    int[n] num = {4,2,1,1,1,4,7};
+    int[n] ans = {4,2,1,1,1,7,7};
+    int[n] output = lucky_func(num);
+    
+    // for (i=0; i<n; i++)
+	//     assert output[i] == ans[i]; 
+
+    assert ans == output; 
+}

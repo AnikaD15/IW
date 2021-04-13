@@ -1,0 +1,114 @@
+int n = 7;
+
+int[n] break_exp(int[n] num, int k){
+    int i;
+
+    for (i = 0; i < n - 1 && k > 0; i++)
+    {
+        //if(??){
+                   // return;
+                //}
+
+        if (num[i] == 4 && num[i + 1] == 7)
+        {
+            if (i % 2 == 0)
+            {
+                num[i + 1] = 4;
+
+                if(??){
+                   return num;
+                }
+            }
+            else if (i > 0 && num[i - 1] == 4)
+            {
+                if (k % 2 == 0)
+                    num[i] = 4;
+                else
+                    num[i] = 7;
+                
+                if(??){
+                    return num;
+                }
+            }
+            else
+                num[i] = 7;
+
+            //if(??){
+              //  return num;
+            //}
+                
+            k--;
+
+            if(??){
+              return num;
+            }
+        }
+    }
+
+    return num;    
+}
+
+// changes array
+int[n] lucky_func(int[n] num)
+{
+    int k = 7;
+    //int n = 7, i;
+    return break_exp(num, k);
+}
+
+int[n] break_correct(int[n] num, int k){
+    int i;
+
+    for (i = 0; i < n - 1 && k > 0; i++)
+    {
+        if (num[i] == 4 && num[i + 1] == 7)
+        {
+            if (i % 2 == 0)
+            {
+                num[i + 1] = 4;
+            }
+            else if (i > 0 && num[i - 1] == 4)
+            {
+                if (k % 2 == 0)
+                    num[i] = 4;
+                else
+                    num[i] = 7;
+                
+                
+                return num;
+            
+            }
+            else
+                num[i] = 7;
+
+            k--;
+        }
+    }
+
+    return num;    
+}
+
+int[n] lucky_func_correct(int[n] num)
+{
+    int k = 7;
+    //int n = 7, i;
+    return break_correct(num, k);
+}
+
+harness void main(int[n] num){
+	//int[n] num = {4,7,2,7,4,4,7};
+	//assert lucky_func(num) == {4,4,2,7,4,7,7}; 
+    //int i;  
+
+    // int[n] num = {4,2,1,1,1,4,7};
+    // int[n] ans = {4,2,1,1,1,7,7};
+    // int[n] output = lucky_func(num);
+    
+    // for (i=0; i<n; i++)
+	//     assert output[i] == ans[i]; 
+
+    // by example
+    //assert ans == output; 
+
+    assert lucky_func(num) == lucky_func_correct(num);
+}

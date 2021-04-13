@@ -1,0 +1,70 @@
+SKETCH version 1.7.6
+Benchmark = even_numbers.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*even_numbers.sk:39*/
+
+void _main ()/*even_numbers.sk:39*/
+{
+  int _out_s1 = 0;
+  add_even(_out_s1);
+  int _out_s3 = 0;
+  add_even_correct(_out_s3);
+  assert (_out_s1 == _out_s3); //Assert at even_numbers.sk:40 (0)
+}
+/*even_numbers.sk:9*/
+
+void add_even (ref int _out)/*even_numbers.sk:9*/
+{
+  _out = 0;
+  int num = 0;
+  for(num = 1; num <= 5; num = num + 1)
+  {
+    bit _out_s5 = 0;
+    even_check(num, _out_s5);
+    if(_out_s5)/*even_numbers.sk:17*/
+    {
+      _out = _out + num;
+    }
+  }
+  return;
+}
+/*even_numbers.sk:24*/
+
+void add_even_correct (ref int _out)/*even_numbers.sk:24*/
+{
+  _out = 0;
+  int num = 0;
+  for(num = 1; num <= 5; num = num + 1)
+  {
+    if((num % 2) == 0)/*even_numbers.sk:32*/
+    {
+      _out = _out + num;
+    }
+  }
+  return;
+}
+/*even_numbers.sk:1*/
+
+void even_check (int n, ref bit _out)/*even_numbers.sk:1*/
+{
+  if((n % 2) == 1)/*even_numbers.sk:3*/
+  {
+    _out = 0;
+    return;
+  }
+  _out = 1;
+  return;
+}
+/*even_numbers.sk:39*/
+
+void main__Wrapper ()  implements main__WrapperNospec/*even_numbers.sk:39*/
+{
+  _main();
+}
+/*even_numbers.sk:39*/
+
+void main__WrapperNospec ()/*even_numbers.sk:39*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 436

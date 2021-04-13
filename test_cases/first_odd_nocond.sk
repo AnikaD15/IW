@@ -1,0 +1,21 @@
+// return first negative odd
+int first_neg_odd(int[5] a){    
+    int num = -1;
+    
+    for(int i=0; i<5; i++)
+    {
+        //if (-a[i]%2==1)
+        //while({| x (> | >=) 1000 |} ){
+        if (??)
+        {
+            return a[i];
+        }
+    }
+  
+    return num;
+}
+
+harness void main(int x){
+    int[5] a = {3, 2, 3, -3, -5};
+    assert first_neg_odd(a) == a[0];
+}

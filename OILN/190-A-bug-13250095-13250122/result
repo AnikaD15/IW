@@ -1,0 +1,56 @@
+SKETCH version 1.7.6
+Benchmark = 190-A-13250095.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*190-A-13250095.sk:39*/
+
+void _main (int n, int m)/*190-A-13250095.sk:39*/
+{
+  int _out_s2 = 0;
+  find_minmax(n, m, _out_s2);
+  int _out_s4 = 0;
+  find_minmax_correct(n, m, _out_s4);
+  assert (_out_s2 == _out_s4); //Assert at 190-A-13250095.sk:40 (0)
+}
+/*190-A-13250095.sk:5*/
+
+void find_minmax (int n, int m, ref int _out)/*190-A-13250095.sk:5*/
+{
+  if((n == 0) && (m != 0))/*190-A-13250095.sk:10*/
+  {
+    _out = 0;
+    return;
+  }
+  else
+  {
+    _out = 1;
+    return;
+  }
+}
+/*190-A-13250095.sk:22*/
+
+void find_minmax_correct (int n, int m, ref int _out)/*190-A-13250095.sk:22*/
+{
+  if((n == 0) && (m != 0))/*190-A-13250095.sk:27*/
+  {
+    _out = 0;
+    return;
+  }
+  else
+  {
+    _out = 1;
+    return;
+  }
+}
+/*190-A-13250095.sk:39*/
+
+void main__Wrapper (int n, int m)  implements main__WrapperNospec/*190-A-13250095.sk:39*/
+{
+  _main(n, m);
+}
+/*190-A-13250095.sk:39*/
+
+void main__WrapperNospec (int n, int m)/*190-A-13250095.sk:39*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 440

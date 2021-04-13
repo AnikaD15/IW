@@ -1,0 +1,56 @@
+SKETCH version 1.7.6
+Benchmark = 4-A-18276798.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*4-A-18276798.sk:38*/
+
+void _main (int x)/*4-A-18276798.sk:38*/
+{
+  int _out_s2 = 0;
+  even_not_2(x, _out_s2);
+  int _out_s4 = 0;
+  even_not_2_correct(x, _out_s4);
+  assert (_out_s2 == _out_s4); //Assert at 4-A-18276798.sk:43 (0)
+}
+/*4-A-18276798.sk:7*/
+
+void even_not_2 (int w, ref int _out)/*4-A-18276798.sk:7*/
+{
+  if(((w % 2) == 0) && (w != 2))/*4-A-18276798.sk:11*/
+  {
+    _out = 1;
+    return;
+  }
+  else
+  {
+    _out = 0;
+    return;
+  }
+}
+/*4-A-18276798.sk:23*/
+
+void even_not_2_correct (int w, ref int _out)/*4-A-18276798.sk:23*/
+{
+  if(((w % 2) == 0) && (w != 2))/*4-A-18276798.sk:27*/
+  {
+    _out = 1;
+    return;
+  }
+  else
+  {
+    _out = 0;
+    return;
+  }
+}
+/*4-A-18276798.sk:38*/
+
+void main__Wrapper (int x)  implements main__WrapperNospec/*4-A-18276798.sk:38*/
+{
+  _main(x);
+}
+/*4-A-18276798.sk:38*/
+
+void main__WrapperNospec (int x)/*4-A-18276798.sk:38*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 514

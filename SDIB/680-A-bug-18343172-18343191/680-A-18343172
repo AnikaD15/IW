@@ -1,0 +1,69 @@
+// max = value most repeated in a[] * value's frequency
+// t = sum of a[] elements
+// sum the minority values
+
+int n = 5;
+
+// 
+generator int break_exp(int i){
+    return {| i+0 | n |};
+	//return ??(3);
+}
+
+int sum_minority (int[n] a)
+{
+	int i, temp;
+	int[101] b = {0}; //= {0};
+	int t=0, max=0;
+	 
+	for (i = 0; i < n; i++)
+	{
+		//scanf("%d", &a[i]);
+		b[a[i]]++;
+		t += a[i];
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		if (b[a[i]] >= 3)
+		{
+			max = 3 * a[i];
+			//break;
+			//i = 5;
+			i = break_exp(i);
+		}
+	}
+	
+	for (i = 0; i < n; i++)
+	{
+		//i = break_exp(i); makes sketch not resolved
+
+		if (b[a[i]] == 2)
+		{
+			//i = break_exp(i);
+			temp = a[i] * 2;
+			//i = break_exp(i);
+			if (temp > max)
+			{
+				//i = break_exp(i);
+				max = temp;
+				//break;
+				//i = 5;
+				i = break_exp(i);
+			}
+		}
+	}
+	//printf("%d", t - max);
+	//return 0;
+	return t-max;
+}
+
+harness void main(){
+	int[n] a1 = {7, 3, 7, 3, 20};
+	int[n] a2 = {7, 9, 3, 1, 8};
+	int[n] a3 = {10, 10, 10, 10, 10};
+	assert sum_minority(a3) == 20;
+    //assert (sum_minority(a1) == 26) && (sum_minority(a2) == 28) && (sum_minority(a3) == 20);
+}
+
+// result changes whenever I run sketch

@@ -1,0 +1,6 @@
+harness void quadr_eq2(int x){
+    int t1 = {| x (+|-) ??|};
+    int t2 = {| x + ??| x -?? |};
+    int t3 = (((x * x) + x) -6);
+    assert (t1 * t2) == t3;
+}

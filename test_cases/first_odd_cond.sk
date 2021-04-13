@@ -1,0 +1,26 @@
+// return first odd
+// missing 2nd condition
+int first_odd(int[5] a){    
+    int num = -1;
+    
+    for(int i=0; i<5; i++)
+    {
+        //if (a[i]%2==1)
+        //while({| x (> | >=) 1000 |} ){
+        if ({| 
+            (+|-)a[i]%2==1  (|| | &&) (a[i] (< | > | <= | >= | == | !=) ?? | 1 | 0)
+            |})
+        {
+            return a[i];
+        }
+    }
+  
+    return num;
+}
+
+harness void main(int x){
+    int[5] a = {3, 2, 3, -3, -5};
+    assert first_odd(a) == a[0];
+}
+
+// result changes whenever I run sketch

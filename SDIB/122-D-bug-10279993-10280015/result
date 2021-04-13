@@ -1,0 +1,126 @@
+SKETCH version 1.7.6
+Benchmark = 122-D-10279993_fixed.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*122-D-1.._fixed.sk:98*/
+
+void _main (int[7] num)/*122-D-1.._fixed.sk:98*/
+{
+  int[7] _out_s3 = {0,0,0,0,0,0,0};
+  lucky_func(num, _out_s3);
+  int[7] _out_s5 = {0,0,0,0,0,0,0};
+  lucky_func_correct(num, _out_s5);
+  assert (_out_s3 == _out_s5); //Assert at 122-D-1.._fixed.sk:113 (0)
+}
+/*122-D-1.._fixed.sk:59*/
+
+void break_correct (int[7] num_0, int k_1, ref int[7] _out)/*122-D-1.._fixed.sk:59*/
+{
+  int k = k_1;
+  int[7] num = num_0;
+  int i = 0;
+  for(i = 0; (i < 6) && (k > 0); i = i + 1)
+  {
+    if(((num[i]) == 4) && ((num[i + 1]) == 7))/*122-D-1.._fixed.sk:64*/
+    {
+      if((i % 2) == 0)/*122-D-1.._fixed.sk:66*/
+      {
+        num[i + 1] = 4;
+      }
+      else
+      {
+        if((i > 0) && ((num[i - 1]) == 4))/*122-D-1.._fixed.sk:70*/
+        {
+          if((k % 2) == 0)/*122-D-1.._fixed.sk:72*/
+          {
+            num[i] = 4;
+          }
+          else
+          {
+            num[i] = 7;
+          }
+          _out = num;
+          return;
+        }
+        else
+        {
+          num[i] = 7;
+        }
+      }
+      k = k - 1;
+    }
+  }
+  _out = num;
+  return;
+}
+/*122-D-1.._fixed.sk:3*/
+
+void break_exp (int[7] num_0, int k_1, ref int[7] _out)/*122-D-1.._fixed.sk:3*/
+{
+  int k = k_1;
+  int[7] num = num_0;
+  int i = 0;
+  for(i = 0; (i < 6) && (k > 0); i = i + 1)
+  {
+    if(((num[i]) == 4) && ((num[i + 1]) == 7))/*122-D-1.._fixed.sk:12*/
+    {
+      if((i % 2) == 0)/*122-D-1.._fixed.sk:14*/
+      {
+        num[i + 1] = 4;
+      }
+      else
+      {
+        if((i > 0) && ((num[i - 1]) == 4))/*122-D-1.._fixed.sk:22*/
+        {
+          if((k % 2) == 0)/*122-D-1.._fixed.sk:24*/
+          {
+            num[i] = 4;
+          }
+          else
+          {
+            num[i] = 7;
+          }
+          _out = num;
+          return;
+        }
+        else
+        {
+          num[i] = 7;
+        }
+      }
+      k = k - 1;
+    }
+  }
+  _out = num;
+  return;
+}
+/*122-D-1.._fixed.sk:52*/
+
+void lucky_func (int[7] num, ref int[7] _out)/*122-D-1.._fixed.sk:52*/
+{
+  int[7] _out_s9 = {0,0,0,0,0,0,0};
+  break_exp(num, 7, _out_s9);
+  _out = _out_s9;
+  return;
+}
+/*122-D-1.._fixed.sk:91*/
+
+void lucky_func_correct (int[7] num, ref int[7] _out)/*122-D-1.._fixed.sk:91*/
+{
+  int[7] _out_s7 = {0,0,0,0,0,0,0};
+  break_correct(num, 7, _out_s7);
+  _out = _out_s7;
+  return;
+}
+/*122-D-1.._fixed.sk:98*/
+
+void main__Wrapper (int[7] num)  implements main__WrapperNospec/*122-D-1.._fixed.sk:98*/
+{
+  _main(num);
+}
+/*122-D-1.._fixed.sk:98*/
+
+void main__WrapperNospec (int[7] num)/*122-D-1.._fixed.sk:98*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 433
