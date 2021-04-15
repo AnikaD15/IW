@@ -1,0 +1,108 @@
+SKETCH version 1.7.6
+Benchmark = ./SDIB/SDIB_prog5/errors3.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+/*errors3.sk:82*/
+
+void _main ()/*errors3.sk:82*/
+{
+  int _out_s5 = 0;
+  correct(_out_s5);
+  int _out_s7 = 0;
+  wrong(_out_s7);
+  assert (_out_s5 == _out_s7); //Assert at errors3.sk:83 (0)
+}
+/*errors3.sk:38*/
+
+void check1 (int i, ref bit _out)/*errors3.sk:38*/
+{
+  if((i % 2) == 1)/*errors3.sk:39*/
+  {
+    _out = 0;
+    return;
+  }
+  _out = 1;
+  return;
+}
+/*errors3.sk:45*/
+
+void check2 (int sum, ref bit _out)/*errors3.sk:45*/
+{
+  if(sum < 0)/*errors3.sk:46*/
+  {
+    _out = 0;
+    return;
+  }
+  _out = 1;
+  return;
+}
+/*errors3.sk:8*/
+
+void correct (ref int _out)/*errors3.sk:8*/
+{
+  _out = 0;
+  int i = 0;
+  int j = 0;
+  int sum = 0;
+  for(i = 0; i <= 20; i = i + 1)
+  {
+    if((i % 2) != 1)/*errors3.sk:18*/
+    {
+      for(j = 0; j <= 15; j = j + 1)
+      {
+        sum = 10 - j;
+        if(sum >= 0)/*errors3.sk:25*/
+        {
+          if(((sum % 2) == 0) && ((sum / 2) <= 2))/*errors3.sk:27*/
+          {
+            _out = _out + 1;
+          }
+        }
+      }
+    }
+  }
+  return;
+}
+/*errors3.sk:82*/
+
+void main__Wrapper ()  implements main__WrapperNospec/*errors3.sk:82*/
+{
+  _main();
+}
+/*errors3.sk:82*/
+
+void main__WrapperNospec ()/*errors3.sk:82*/
+{ }
+/*errors3.sk:52*/
+
+void wrong (ref int _out)/*errors3.sk:52*/
+{
+  _out = 0;
+  int i = 0;
+  int j = 0;
+  int sum = 0;
+  for(i = 0; i <= 20; i = i + 1)
+  {
+    bit _out_s9 = 0;
+    check1(i, _out_s9);
+    if(_out_s9)/*errors3.sk:62*/
+    {
+      for(j = 0; j <= 15; j = j + 1)
+      {
+        sum = 10 - j;
+        bit _out_s11 = 0;
+        check2(sum, _out_s11);
+        if(_out_s11)/*errors3.sk:69*/
+        {
+          if(((sum % 2) == 0) && ((sum / 2) <= 2))/*errors3.sk:71*/
+          {
+            _out = _out + 1;
+          }
+        }
+      }
+    }
+  }
+  return;
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 1321
