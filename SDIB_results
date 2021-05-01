@@ -1,82 +1,86 @@
+SDIB errors
+Progam 1 error 1
 
-real	0m1.089s
-user	0m1.792s
-sys	0m0.150s
+real	0m1.185s
+user	0m1.700s
+sys	0m0.152s
+Progam 1 error 2
 
-real	0m1.214s
-user	0m1.863s
-sys	0m0.161s
+real	0m1.131s
+user	0m1.737s
+sys	0m0.147s
+Progam 1 error 3
 
-real	0m1.137s
-user	0m1.889s
-sys	0m0.165s
+real	0m1.004s
+user	0m1.694s
+sys	0m0.138s
+Lines of code: 
+      77 ./SDIB/SDIB_prog1/errors3.sk
+Progam 2 error 1
 
-real	0m1.198s
-user	0m2.084s
-sys	0m0.158s
+real	0m1.164s
+user	0m2.002s
+sys	0m0.142s
+Progam 2 error 2
 
-real	0m1.199s
-user	0m2.091s
-sys	0m0.155s
-
-real	0m1.175s
-user	0m2.179s
-sys	0m0.164s
-
-real	0m1.718s
-user	0m2.467s
+real	0m1.345s
+user	0m2.139s
 sys	0m0.169s
+Progam 2 error 3
 
-real	0m10.095s
-user	0m10.606s
-sys	0m0.224s
+real	0m1.776s
+user	0m2.223s
+sys	0m0.186s
+Lines of code: 
+      72 ./SDIB/SDIB_prog2/errors3.sk
+Progam 3 error 1
 
-real	0m18.103s
-user	0m17.655s
-sys	0m0.288s
-  UNSATISFIABLE ASSERTION errors1.sk:90: This loop was unrolled 8 times, but apparently that was not enough. Use the --bnd-unroll-amnt flag for better results.
+real	0m2.153s
+user	0m2.315s
+sys	0m0.201s
+Progam 3 error 2
 
-*** Rejected
-    [0;31m[1618457411.5660 - ERROR] [SKETCH] Sketch Not Resolved Error:   UNSATISFIABLE ASSERTION errors1.sk:90: This loop was unrolled 8 times, but apparently that was not enough. Use the --bnd-unroll-amnt flag for better results.
+real	0m21.148s
+user	0m18.111s
+sys	0m0.303s
+Progam 3 error 3
 
-*** Rejected
-The sketch could not be resolved.[0m
-    [0;32m[1618457411.5730 - DEBUG] [SKETCH] stack trace written to file: /Users/aduffus/.sketch/tmp/stacktrace.txt[0m
-    [0;32m[1618457411.5740 - DEBUG] Backend solver input file at /Users/aduffus/.sketch/tmp/errors1.sk/input0.tmp[0m
+real	0m18.765s
+user	0m17.714s
+sys	0m0.281s
+Lines of code: 
+      86 ./SDIB/SDIB_prog3/errors3.sk
+Progam 4 error 1
 
-real	0m1.514s
-user	0m2.844s
-sys	0m0.167s
-./SDIB/SDIB_prog4/errors2.sk:5:18: unexpected token: (
-./SDIB/SDIB_prog4/errors2.sk:5:45: unexpected token: 0
-    [0;31m[1618457412.1050 - ERROR] [SKETCH] Program Parse Error: Sketch failed to parse: null[0m
-    [0;32m[1618457412.1120 - DEBUG] [SKETCH] stack trace written to file: /Users/aduffus/.sketch/tmp/stacktrace.txt[0m
-
-real	0m0.549s
-user	0m0.750s
-sys	0m0.090s
-  UNSATISFIABLE ASSERTION errors3.sk:90: This loop was unrolled 8 times, but apparently that was not enough. Use the --bnd-unroll-amnt flag for better results.
-
-*** Rejected
-    [0;31m[1618457413.9300 - ERROR] [SKETCH] Sketch Not Resolved Error:   UNSATISFIABLE ASSERTION errors3.sk:90: This loop was unrolled 8 times, but apparently that was not enough. Use the --bnd-unroll-amnt flag for better results.
-
-*** Rejected
-The sketch could not be resolved.[0m
-    [0;32m[1618457413.9360 - DEBUG] [SKETCH] stack trace written to file: /Users/aduffus/.sketch/tmp/stacktrace.txt[0m
-    [0;32m[1618457413.9370 - DEBUG] Backend solver input file at /Users/aduffus/.sketch/tmp/errors3.sk/input0.tmp[0m
-
-real	0m1.911s
-user	0m3.599s
+real	0m2.030s
+user	0m3.464s
 sys	0m0.225s
+Progam 4 error 2
 
-real	0m1.408s
-user	0m2.430s
-sys	0m0.168s
+real	0m4.813s
+user	0m6.025s
+sys	0m0.230s
+Progam 4 error 3
 
-real	0m1.362s
-user	0m2.496s
-sys	0m0.180s
+real	0m6.148s
+user	0m7.753s
+sys	0m0.286s
+Lines of code: 
+      77 ./SDIB/SDIB_prog4/errors3.sk
+Progam 5 error 1
 
-real	0m1.533s
-user	0m2.541s
-sys	0m0.174s
+real	0m1.151s
+user	0m2.159s
+sys	0m0.146s
+Progam 5 error 2
+
+real	0m1.192s
+user	0m2.150s
+sys	0m0.155s
+Progam 5 error 3
+
+real	0m1.762s
+user	0m2.273s
+sys	0m0.157s
+Lines of code: 
+      59 ./SDIB/SDIB_prog5/errors3.sk

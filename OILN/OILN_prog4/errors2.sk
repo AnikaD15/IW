@@ -1,12 +1,9 @@
 int t = 10;
-
 generator bit if_exp(int i, int j, int m, int[t] a){
     return {|(a[i]+a[j]==a[m]) (|| | &&) ((i | j | m) (< | > | <= | >= | == | !=) (?? | i | j | m) | 1 | 0)|}; 
 }
-
 int sum_cond(int[t] a) {
 	int i,j,m;
-
 	for(i=0;i<t;i++){
 		for(j=0;j<t;j++) {
 			for(m=0;m<t;m++){
@@ -16,13 +13,10 @@ int sum_cond(int[t] a) {
 			}
 		}
 	}
-
 	return {|1|0|};
 }
-
 int sum_cond_correct(int[t] a) {
 	int i,j,m;
-
 	for(i=0;i<t;i++){
 		for(j=0;j<t;j++) {
 			for(m=0;m<t;m++){
@@ -32,18 +26,8 @@ int sum_cond_correct(int[t] a) {
 			}
 		}
 	}
-
 	return 0;
 }
-
 harness void main(int[t] a){
-	// int t = 5;
-	// int[t] a1 = {1, 2, 3, 5, 7};
-	// int[t] a2 = {1, 8, 1, 5, 1};
-
-	// by example
-	//assert sum_cond(t, a1) == 1;
-    //assert sum_cond(t, a1) == 1 && sum_cond(t, a2) == 0;
-
 	assert sum_cond(a) == sum_cond_correct(a);
 }

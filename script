@@ -1,36 +1,37 @@
 #!/bin/bash
-rm *_results
+#rm *_results
 
-echo "OILN errors"
+# echo "OILN errors" >> OILN_results
 
-# five programs
-for i in {1..5}
-do
-    # 3 errors
-    for j in {1..3}
-    do
-        echo "Progam $i error $j"
-        if [ $i -eq 3 ]
-        then
-            (time sketch --bnd-unroll-amnt 31 ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
-        elif [ $i -eq 4 ]
-        then
-            echo "Time"
-            (time sketch --bnd-unroll-amnt 1000 ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
+# # five programs
+# for i in {1..5}
+# do
+#     # 3 errors
+#     for j in {1..3}
+#     do
+#         echo "Progam $i error $j" >> OILN_results
+#         if [ $i -eq 3 ]
+#         then
+#             (time sketch --bnd-unroll-amnt 31 ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
+#         elif [ $i -eq 4 ]
+#         then
+#             echo "Time"
+#             (time sketch --bnd-unroll-amnt 1000 ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
             
-            # if [ $j -eq 3 ]
-            # then 
-            #     echo "Error"
-            #     sketch --bnd-unroll-amnt 1000 ./OILN/OILN_prog4/prog4_errors3.sk > results 1>> OILN_prog4_results
-            # fi
-        else
-            (time sketch ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
-        fi   
-    done
-   
-done
+#             # if [ $j -eq 3 ]
+#             # then 
+#             #     echo "Error"
+#             #     sketch --bnd-unroll-amnt 1000 ./OILN/OILN_prog4/prog4_errors3.sk > results 1>> OILN_prog4_results
+#             # fi
+#         else
+#             (time sketch ./OILN/OILN_prog$i/errors$j.sk) > results 2>> OILN_results
+#         fi   
+#     done
+#     echo "Lines of code: " >> OILN_results
+#     wc -l ./OILN/OILN_prog$i/errors$j.sk >> OILN_results
+# done
 
-echo "SDIB errors"
+echo "SDIB errors" >> SDIB_results
 
 # five programs
 for i in {1..5}
@@ -38,12 +39,14 @@ do
     # 3 errors
     for j in {1..3}
     do
-        echo "Progam $i error $j"
-        if [ $# -eq 4 ]
+        echo "Progam $i error $j" >> SDIB_results
+        if [ $i -eq 4 ]
         then
             (time sketch --bnd-unroll-amnt 40 ./SDIB/SDIB_prog$i/errors$j.sk) > results 2>> SDIB_results
         else
             (time sketch ./SDIB/SDIB_prog$i/errors$j.sk) > results 2>> SDIB_results
         fi     
     done
+    echo "Lines of code: " >> SDIB_results
+    wc -l ./SDIB/SDIB_prog$i/errors$j.sk >> SDIB_results
 done
