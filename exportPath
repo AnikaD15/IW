@@ -1,0 +1,2 @@
+echo 'export PATH="/Users/aduffus/Desktop/IW-Program-Repair/sketch-1.7.6/sketch-frontend":$PATH' >> ~/.bash_profile
+source ~/.bash_profile
